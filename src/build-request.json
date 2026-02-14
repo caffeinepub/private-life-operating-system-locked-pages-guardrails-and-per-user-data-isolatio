@@ -1,0 +1,94 @@
+{
+  "kind": "build_request",
+  "title": "End-to-end site audit and fix broken flows (routing, focus completion, weekly reset)",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-19",
+      "text": "Perform an end-to-end functional audit of the existing flows (Login, Onboarding gate, Dashboard, Mind Dump, Clarify, Projects, Weekly Reset, Profile) and fix any broken navigation, runtime errors, or dead-end states found during this audit.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Check the website end to end and fix if there is any issue"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A new user can reach /login directly and log in without router errors.",
+        "After login, if no user profile exists, the app shows onboarding and then routes to /dump after onboarding completion.",
+        "Bottom navigation works and routes correctly between Dashboard, Dump, Clarify, Projects, Reset for an authenticated user.",
+        "No page renders a blank screen due to an uncaught exception during normal use of the above flows."
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "text": "Fix TanStack Router configuration so that guest-only routes (specifically /login) are part of the active route tree and do not conflict with the authenticated root route guard.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Check the website end to end and fix if there is any issue"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Navigating to /login while logged out renders the Login page UI.",
+        "Navigating to any authenticated route (/, /dump, /clarify, /projects, /reset, /profile) while logged out redirects to /login.",
+        "Navigating to /login while logged in redirects to /."
+      ]
+    },
+    {
+      "id": "REQ-21",
+      "text": "Implement task completion in Focus Mode so that clicking “Mark Done” updates the selected task status to completed in the backend and the Dashboard reflects the change immediately after exiting Focus Mode.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Check the website end to end and fix if there is any issue"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Clicking “Mark Done” in Focus Mode updates the corresponding Task.status to completed in persistent backend state.",
+        "After marking done and exiting Focus Mode, the task no longer appears in the Dashboard pending task list.",
+        "The update is scoped to the authenticated user; a user cannot mark another user’s task as done (backend enforces ownership)."
+      ]
+    },
+    {
+      "id": "REQ-22",
+      "text": "Implement the “Close this week & reset” behavior to clear the user’s daily tasks as part of Weekly Reset, in addition to saving the weekly review.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Check the website end to end and fix if there is any issue"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Submitting Weekly Reset persists the weekly review and then clears the authenticated user’s current tasks for the new week (per product intent).",
+        "After a weekly reset, the Dashboard shows no pending tasks for that user.",
+        "The reset operation only affects the authenticated user’s data; it cannot clear other users’ tasks (backend enforces ownership)."
+      ]
+    }
+  ],
+  "constraints": [
+    "Backend must remain a single Motoko actor with all logic in backend/main.mo; add backend/migration.mo only if state schema changes require it.",
+    "Do not edit files under frontend/src/components/ui or any other frontend immutable paths listed in SYSTEM_CONTEXT.",
+    "Use English for all user-facing text."
+  ],
+  "nonGoals": [
+    "Adding new pages beyond the existing route set (Signup, Login, Onboarding, Dashboard, Mind Dump, Clarify, Projects, Weekly Reset, Profile).",
+    "Introducing external services (email delivery providers, third-party auth beyond Internet Identity, external databases).",
+    "Adding new gamification, social features, notifications, or backlog/global task list views."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

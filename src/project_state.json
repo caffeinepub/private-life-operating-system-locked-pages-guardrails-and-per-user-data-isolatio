@@ -1,0 +1,276 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Multi-user, private, mobile-first web application (“Life Operating System”) focused on mind dumping, forced clarification into tiny actions, and limiting daily execution to 3 tasks, with strict behavioral guardrails and a minimal calm UI.",
+  "architectural_notes": [
+    "Pages are locked to the specified list; do not add additional pages.",
+    "All data must be strictly scoped to user_id; no cross-user access.",
+    "Behavioral guardrails must be enforced in business logic (not just UI): max 3 tasks/day, time_required limited to 5/15/30/45, edit_count max 2, no global task lists/backlog views.",
+    "Default stance: no notifications, no gamification, no social/collaboration features.",
+    "Mobile-first UI with bottom navigation: Dashboard | Dump | Clarify | Projects | Reset; Focus Mode hides navigation."
+  ],
+  "known_issues": [],
+  "isFixRequest": true,
+  "existing_features": [
+    {
+      "id": "feature-implement-a-multi-user-account-system-with-strictly-private-user-isolated-data-access-for-all-reads-writes-so-that-no-user-can-access-another-user-s-records",
+      "title": "Implement a multi-user account system with strictly private, user-isolated data access for all reads/writes so that no user can access another user’s records.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-authentication-ux-flows-and-routing-for-the-locked-page-set-signup-login-onboarding-3-4-screens-dashboard-today-only-mind-dump-clarify-projects-weekly-reset-profile-do-not-add-any-additional-pages",
+      "title": "Add authentication UX flows and routing for the locked page set: Signup, Login, Onboarding (3–4 screens), Dashboard (today only), Mind Dump, Clarify, Projects, Weekly Reset, Profile; do not add any additional pages.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-signup-screen-with-fields-name-email-password-timezone-auto-detected-but-editable-and-the-exact-copy-this-is-your-private-thinking-and-execution-space",
+      "title": "Implement Signup screen with fields Name, Email, Password, Timezone (auto-detected but editable) and the exact copy: “This is your private thinking and execution space.”",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-login-screen-with-email-password-and-a-forgot-password-entry-point",
+      "title": "Implement Login screen with Email, Password, and a “Forgot password” entry point.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-forgot-password-and-password-reset-via-email-flow-as-specified-and-document-handle-any-platform-constraints-where-sending-email-is-not-possible-without-external-email-infrastructure",
+      "title": "Implement “Forgot password” and “Password reset via email” flow as specified, and document/handle any platform constraints where sending email is not possible without external email infrastructure.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-enforce-behavioral-guardrails-in-application-logic-maximum-3-tasks-per-day-task-duration-cannot-exceed-45-minutes-task-editable-only-twice-no-global-task-lists-no-infinite-backlog-views-no-notifications-by-default-and-no-gamification-social-features",
+      "title": "Enforce behavioral guardrails in application logic: maximum 3 tasks per day, task duration cannot exceed 45 minutes, task editable only twice, no global task lists, no infinite backlog views, no notifications by default, and no gamification/social features.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-onboarding-flow-with-3-4-screens-using-the-exact-provided-copy-include-a-single-cta-button-i-agree-let-s-begin-and-after-onboarding-route-the-user-directly-to-mind-dump",
+      "title": "Implement Onboarding flow with 3–4 screens using the exact provided copy, include a single CTA button “I agree. Let’s begin”, and after onboarding route the user directly to Mind Dump.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-mind-dump-page-as-a-full-screen-text-area-with-placeholder-write-everything-that-s-in-your-head-don-t-organize-and-buttons-save-dump-and-clarify-now-saving-creates-minddumpitems-without-tags-categories",
+      "title": "Implement Mind Dump page as a full-screen text area with placeholder “Write everything that’s in your head. Don’t organize.” and buttons “Save dump” and “Clarify now”; saving creates MindDumpItems without tags/categories.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-clarify-as-a-forced-step-by-step-flow-that-iterates-through-each-unprocessed-minddumpitem-and-requires-answering-actionable-if-no-archive-as-thought-next-physical-step-time-required-5-15-30-45-only-energy-required-low-medium-high-project-association-select-create-none-then-choose-add-to-today-or-add-for-later-no-skipping-allowed",
+      "title": "Implement Clarify as a forced, step-by-step flow that iterates through each unprocessed MindDumpItem and requires answering: actionable? (if no, archive as thought), next physical step, time required (5/15/30/45 only), energy required (Low/Medium/High), project association (select/create/none), then choose “Add to Today” or “Add for Later”; no skipping allowed.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-dashboard-today-only-with-an-energy-selector-low-medium-high-and-a-maximum-of-exactly-3-task-cards-for-today-each-card-shows-task-title-and-next-physical-step-and-includes-enter-focus-mode",
+      "title": "Implement Dashboard (today only) with an Energy selector (Low/Medium/High) and a maximum of exactly 3 task cards for today; each card shows task title and next physical step and includes “Enter Focus Mode”.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-focus-mode-from-a-task-card-hide-all-navigation-and-show-only-task-title-next-physical-step-a-25-minute-timer-mark-done-and-exit-focus-mode",
+      "title": "Implement Focus Mode: from a task card, hide all navigation and show only task title, next physical step, a 25-minute timer, “Mark done”, and “Exit focus mode”.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-projects-page-with-project-cards-that-show-outcome-sentence-and-a-progress-bar-project-detail-view-shows-tasks-only-if-they-are-45-minutes-and-prevents-creation-of-vague-tasks",
+      "title": "Implement Projects page with project cards that show outcome sentence and a progress bar; project detail view shows tasks only if they are ≤45 minutes and prevents creation of vague tasks.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-weekly-reset-page-with-prompts-wins-failures-avoidance-next-week-focus-top-3-priorities-and-a-close-this-week-reset-action-that-clears-daily-tasks-and-starts-a-fresh-week",
+      "title": "Implement Weekly Reset page with prompts (wins, failures, avoidance, next week focus/top 3 priorities) and a “Close this week & reset” action that clears daily tasks and starts a fresh week.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-profile-minimal-page-allowing-the-user-to-edit-name-timezone-optional-single-accent-color-and-energy-preference-morning-afternoon-evening",
+      "title": "Implement Profile (minimal) page allowing the user to edit Name, Timezone, optional single accent color, and energy preference (morning/afternoon/evening).",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-mobile-first-bottom-navigation-with-exactly-dashboard-dump-clarify-projects-reset-and-ensure-it-is-hidden-during-focus-mode",
+      "title": "Implement mobile-first bottom navigation with exactly: Dashboard | Dump | Clarify | Projects | Reset, and ensure it is hidden during Focus Mode.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-coherent-minimal-visual-theme-consistent-with-the-design-constraints-off-white-light-grey-background-large-readable-typography-no-gradients-no-animations-except-simple-progress-fill-and-exactly-one-accent-color-not-blue-purple-used-consistently",
+      "title": "Apply a coherent minimal visual theme consistent with the design constraints: off-white/light grey background, large readable typography, no gradients, no animations except simple progress fill, and exactly one accent color (not blue/purple) used consistently.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-optional-add-a-minimal-ai-prompts-helper-that-asks-one-question-at-a-time-never-lectures-never-overwhelms-and-uses-only-the-example-style-prompts-provided-mirror-not-coach",
+      "title": "Optional: Add a minimal “AI prompts” helper that asks one question at a time, never lectures, never overwhelms, and uses only the example-style prompts provided (mirror, not coach).",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-perform-an-end-to-end-functional-audit-of-the-existing-flows-login-onboarding-gate-dashboard-mind-dump-clarify-projects-weekly-reset-profile-and-fix-any-broken-navigation-runtime-errors-or-dead-end-states-found-during-this-audit",
+      "title": "Perform an end-to-end functional audit of the existing flows (Login, Onboarding gate, Dashboard, Mind Dump, Clarify, Projects, Weekly Reset, Profile) and fix any broken navigation, runtime errors, or dead-end states found during this audit.",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-tanstack-router-configuration-so-that-guest-only-routes-specifically-login-are-part-of-the-active-route-tree-and-do-not-conflict-with-the-authenticated-root-route-guard",
+      "title": "Fix TanStack Router configuration so that guest-only routes (specifically /login) are part of the active route tree and do not conflict with the authenticated root route guard.",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-task-completion-in-focus-mode-so-that-clicking-mark-done-updates-the-selected-task-status-to-completed-in-the-backend-and-the-dashboard-reflects-the-change-immediately-after-exiting-focus-mode",
+      "title": "Implement task completion in Focus Mode so that clicking “Mark Done” updates the selected task status to completed in the backend and the Dashboard reflects the change immediately after exiting Focus Mode.",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-close-this-week-reset-behavior-to-clear-the-user-s-daily-tasks-as-part-of-weekly-reset-in-addition-to-saving-the-weekly-review",
+      "title": "Implement the “Close this week & reset” behavior to clear the user’s daily tasks as part of Weekly Reset, in addition to saving the weekly review.",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Implement user accounts and authentication (email/password signup, login, forgot/reset via email) with timezone auto-detect/edit and strict per-user data isolation",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Create locked page set and navigation structure (Signup, Login, 3–4 screen Onboarding, Dashboard, Mind Dump, Clarify, Projects, Weekly Reset, minimal Profile) with bottom nav: Dashboard | Dump | Clarify | Projects | Reset",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Define and implement core data models and relationships: User, MindDumpItem (processed flag), Task (constraints incl. edit_count max 2), Project, WeeklyReview; ensure all records scoped to user_id",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Mind Dump page: full-screen text area with Save dump + Clarify now; create unprocessed MindDumpItems without tags/categories",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Clarify page: forced step-by-step flow per unprocessed MindDumpItem (actionable? next physical step, time 5/15/30/45, energy low/med/high, optional project select/create) with Add to Today vs Add for Later and no skipping",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Dashboard (today only): energy selector + exactly up to 3 task cards; enforce max 3 tasks/day and no global/backlog task list views",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Focus Mode: from a task card, hide all navigation and show task title, next physical step, 25-minute timer, Mark done, Exit focus mode",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Projects: project cards with outcome sentence + progress bar; inside project show only tasks ≤45 minutes and prevent vague tasks",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Weekly Reset: weekly review prompts (wins, failures, avoidance, next week focus/top 3) and “Close this week & reset” action that clears daily tasks and starts a fresh week",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Profile (minimal): edit name, timezone, optional accent color, and energy preference (morning/afternoon/evening)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Enforce behavioral guardrails in application logic: max 3 tasks/day, duration ≤45 min, task editable only twice, no notifications by default, no gamification/social features, no infinite backlog/global task list",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "UI/design system: minimal calm mobile-first style (off-white/light grey, single accent color, no gradients, minimal animation only for simple progress fill, large readable typography)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Optional minimal AI prompts layer: one question at a time, non-lecturing, supports making tasks smaller; AI acts as mirror not coach",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-19",
+      "summary": "Create and persist the specified data models (User, MindDumpItem, Task, Project, WeeklyReview) with the exact fields and enforce that every record is tied to the authenticated user.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Private Life Operating System: locked pages, guardrails, and per-user data isolation",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

@@ -1,0 +1,86 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-perform-an-end-to-end-functional-audit-of-the-existing-flows-login-onboarding-gate-dashboard-mind-dump-clarify-projects-weekly-reset-profile-and-fix-any-broken-navigation-runtime-errors-or-dead-end-states-found-during-this-audit",
+      "featureTitle": "Perform an end-to-end functional audit of the existing flows (Login, Onboarding gate, Dashboard, Mind Dump, Clarify, Projects, Weekly Reset, Profile) and fix any broken navigation, runtime errors, or dead-end states found during this audit.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/ClarifyPage.tsx",
+        "frontend/src/pages/LoginPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-19"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-fix-tanstack-router-configuration-so-that-guest-only-routes-specifically-login-are-part-of-the-active-route-tree-and-do-not-conflict-with-the-authenticated-root-route-guard",
+      "featureTitle": "Fix TanStack Router configuration so that guest-only routes (specifically /login) are part of the active route tree and do not conflict with the authenticated root route guard.",
+      "files": [
+        "frontend/src/App.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-20"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-task-completion-in-focus-mode-so-that-clicking-mark-done-updates-the-selected-task-status-to-completed-in-the-backend-and-the-dashboard-reflects-the-change-immediately-after-exiting-focus-mode",
+      "featureTitle": "Implement task completion in Focus Mode so that clicking “Mark Done” updates the selected task status to completed in the backend and the Dashboard reflects the change immediately after exiting Focus Mode.",
+      "files": [
+        "frontend/src/components/FocusMode.tsx",
+        "frontend/src/hooks/useQueries.ts",
+        "frontend/src/pages/DashboardPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-21"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-the-close-this-week-reset-behavior-to-clear-the-user-s-daily-tasks-as-part-of-weekly-reset-in-addition-to-saving-the-weekly-review",
+      "featureTitle": "Implement the “Close this week & reset” behavior to clear the user’s daily tasks as part of Weekly Reset, in addition to saving the weekly review.",
+      "files": [
+        "frontend/src/hooks/useQueries.ts",
+        "frontend/src/pages/WeeklyResetPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-22"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

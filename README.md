@@ -1,2 +1,3 @@
-# private-life-operating-system-locked-pages-guardrails-and-per-user-data-isolatio
-Exported from Caffeine project: Private Life Operating System: locked pages, guardrails, and per-user data isolation
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

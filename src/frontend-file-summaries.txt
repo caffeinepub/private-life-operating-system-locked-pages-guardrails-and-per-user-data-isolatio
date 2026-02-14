@@ -1,0 +1,21 @@
+{
+  "frontend/src/App.tsx": "Main application component with unified TanStack Router setup using a single root route tree that includes both guest-only /login route and authenticated routes with proper RequireAuth/RequireGuest guards, profile-based onboarding flow, and accent color application.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for all backend operations including user profile management, tasks, mind dumps, projects, weekly reviews, task completion (useMarkTaskDone), and weekly task reset (useResetWeeklyTasks) with proper error handling and cache invalidation.",
+  "frontend/src/pages/LoginPage.tsx": "Minimal login page using Internet Identity authentication with app icon (with error handling for missing asset), description, error state display using isLoginError helper, and informational text about the authentication system.",
+  "frontend/src/pages/OnboardingPage.tsx": "Multi-step onboarding flow with three informational screens followed by name/timezone collection, saving user profile with enum values on completion and routing to Mind Dump.",
+  "frontend/src/pages/DashboardPage.tsx": "Today-only dashboard showing up to 3 pending tasks with energy level filtering and Focus Mode entry point that passes mark done handler to complete tasks and refresh the list.",
+  "frontend/src/pages/MindDumpPage.tsx": "Full-screen textarea for mind dumping with Save dump and Clarify now actions, no categories or tags.",
+  "frontend/src/pages/ClarifyPage.tsx": "Forced step-by-step clarification flow for unprocessed mind dumps with actionable check, next step input, duration/energy selection, project association, and graceful handling of empty state with redirect message instead of blank screen.",
+  "frontend/src/pages/ProjectsPage.tsx": "Projects list with outcome display, progress bars, and bottom sheet for viewing project tasks filtered by allowed durations.",
+  "frontend/src/pages/WeeklyResetPage.tsx": "Weekly reflection prompts (wins, failures, avoidance, priorities) with reset action that saves review, clears tasks via resetWeeklyTasks backend call, and returns to dashboard with proper loading states.",
+  "frontend/src/pages/ProfilePage.tsx": "Minimal profile editor for name, timezone, accent color selection, energy preference using enum values from backend, and logout functionality.",
+  "frontend/src/components/AppShell.tsx": "Authenticated app layout wrapper with max-width content area, bottom navigation, and footer with Caffeine attribution.",
+  "frontend/src/components/BottomNav.tsx": "Fixed bottom navigation bar with exactly five items (Dashboard, Dump, Clarify, Projects, Reset) using Lucide icons and active state highlighting.",
+  "frontend/src/components/TaskCard.tsx": "Task display card showing title, duration, energy requirement, and Enter Focus Mode button.",
+  "frontend/src/components/FocusMode.tsx": "Full-screen focus mode overlay with 25-minute countdown timer, pause/resume, mark done functionality that calls backend mutation with loading state, and exit controls.",
+  "frontend/src/components/ProjectCard.tsx": "Project card component displaying project name, task count, and progress bar with completion percentage.",
+  "frontend/src/utils/timezone.ts": "Utility function to auto-detect user timezone using Intl API with UTC fallback.",
+  "frontend/src/theme/accent.ts": "Utility to dynamically apply user-selected accent color by converting hex to OKLCH and updating CSS custom property.",
+  "frontend/src/index.css": "Global styles with OKLCH color system for light mode, calm off-white background, large readable typography, and minimal design tokens.",
+  "frontend/tailwind.config.js": "Tailwind configuration with OKLCH color mapping, increased base font sizes for readability, custom border radius, and only progress-fill animation allowed."
+}
